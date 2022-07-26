@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1490</x>
+      <y>200</y>
+      <w>210</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>Carta
+--
+valor:String
+palo:String
+imagen:BufferedImage
+valorNumerico:int
+--
+Carta()
+getValorNumerico():int
+getValor():String
+setValor(String):void
+getPalo():String
+setPalo(String):void
+toString():String
+setImagen(BufferedImage):void
+getImagen():BufferedImage
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1190</x>
+      <y>200</y>
+      <w>210</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>Baraja
+--
+CARTAS_FILE:String
+CARTA_WIDTH:int
+CARTA_HEIGHT:int
+PALOS:int
+VALORES:int
+CARTA_BACK_INDEX:int
+TOTAL_IMAGES:int
+mazo:ArrayList&lt;Carta&gt;
+aleatorio:Random
+--
+Baraja()
+asignarImagen():void
+getCarta():Carta
+mazoSize():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1760</x>
+      <y>300</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>FileIO
+--
+--
+readImageFile:BufferedImage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1570</x>
+      <y>500</y>
+      <w>310</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>JugadoresSimulados
+--
+EXTREMO:int
+ARRIESGADO:int
+SEMI:int
+DESENTE:int
+MESURADO:int
+nombreJugador:String
+turno:int
+tipo:int
+descarte:int
+random:Random
+--
+JugadoresSimulados(int,int,String,ControlPoker)
+run():void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>210</y>
+      <w>270</w>
+      <h>640</h>
+    </coordinates>
+    <panel_attributes>ControlPoker
+--
+TOTAL_JUGADORES:int
+NOMBRE_JUGADORES:String[]
+NUMERO_CARTAS:int
+vistaPoker:VistaPoker
+mesaJuego:MesaJuego
+baraja:Baraja
+manosJugadores:List&lt;List&lt;Carta&gt;&gt;
+turno:int
+descarte:int[]
+bloqueo:Lock
+esperarTurno:Condition
+aleatorio:Random
+seleccionarJugador:int
+apuestaAleatoria:int
+nombreJugadorMano:String
+nombreGanador:String
+--
+ControlPoker()
+iniciarJuego():void
+segundaRondaMismoJugadorMano():void
+descarteJugadorHumano():void
+iniciarJugadoresSimulados():void
+turnos():void
+darCartas():void
+asignarCartas():void
+validarJugador():int[]
+seleccionarCartas():ArrayList&lt;Carta&gt;
+reiniciarJuego():List&lt;List&lt;Carta&gt;&gt;
+getValorCarta():int
+getPaloCarta():String
+tiposIguakes():boolean
+idPares():int
+idTrios():int
+getCartaPequeña():int
+getCartaGrande():int
+getValue():int
+getValorNumBaraja():int
+determinarGanador():void
+mostrarGanadorEnPantalla():void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>380</y>
+      <w>260</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>VistaInstrucciones1
+--
+zonaTexto:JPanel
+zonaBotones:JPanel
+volver:JButton
+siguiente:JButton
+instrucciones:JLabel
+mensajes:JTextArea
+escucha:Escucha
+imagen:ImageIcon
+portada:VistaPortadaPoker
+vistaInstrucciones2:VistaInstrucciones2
+vistaInstrucciones:JFrame
+titulo:Titulos
+--
+VistaInstrucciones1()
+initGUI():void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>1140</y>
+      <w>230</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>VistaInstrucciones3
+--
+todo:JPanel
+zonaBotones:JPanel
+volver:JButton
+atras:JButton
+instrucciones:JLabel
+mensajes:JTextArea
+escucha:Escucha
+imagen:ImageIcon
+imagen Reglas:ImageIcon
+instrucciones2:VistaInstrucciones2
+portada:VistaPortadaPoker
+vistaInstrucciones:JFrame
+titulo:Titulos
+--
+VistaInstrucciones3()
+initGUI():void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>750</y>
+      <w>260</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>VistaInstrucciones2
+--
+zonaBotones:JPanel
+volver:JButton
+atras:JButton
+siguiente:JButton
+zonaImagen1:JLabel
+mensajes:JTextArea
+escucha:Escucha
+imagen:ImagenIcon
+imagenReglas:ImagenIcon
+instrucciones1:VistaInstrucciones1
+vistaInstrucciones3:VistaInstrucciones3
+portada:VistaPortadaPoker
+vistaInstrucciones:JFrame
+titulo:Titulos
+--
+VistaInstrucciones2()
+initGUI():void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1180</x>
+      <y>510</y>
+      <w>280</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>MesaJuego
+--
+CARTA_TAPADA_FILE:String
+jugadores:PanelJugadores
+labelMazo:JLabel
+numeroCartas:JLabel
+dinero:JTextField
+apuesta:JTextField
+imagenMazo:ImageIcon
+comunes:JPanel
+jugadoresSimulados:JPanel
+zonas:JPanel
+paneles:JPanel
+imagenApostar:ImageIcon
+apostar:JButton
+escucha:Escucha
+apuestaGeneral:int
+numeroRondaApuesta:int
+--
+MesaJuego(String,String[],List&lt;List&lt;Carta&gt;&gt;)
+getManoHumano():List&lt;Carta&gt;
+getApuestaMesa():int
+aumentarApuesta():void
+igualarApuesta():void
+apuestaJugadorMano(int):void
+apuestaSegundaMano(int):void
+mesaActualizar(List&lt;List&lt;Carta&gt;&gt;):void
+reiniciarJuego(List&lt;List&lt;Carta&gt;&gt;):void
+desactivarEscuchas():void
+habilitarBotonApostar():void
+refrescarCentroMesa():void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1100</x>
+      <y>1100</y>
+      <w>310</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>PanelJugadores
+--
+dineroJugador:int
+mano:List&lt;Carta&gt;
+nombre:JLabel
+panelMano:JPanel
+escucha:Escucha
+controlPoker:ControlPoker
+aleatorio:Random
+isHuman:boolean
+--
+PanelJugadores(String,List&lt;Carta&gt;,boolean)
+refrescarPanelMano():void
+recibirCartas(List&lt;Carta&gt;):void
+eliminarCartaNoHuman(ArrayList&lt;Integer&gt;):void
+eliminarCarta(Carta):void
+getMano():List&lt;Carta&gt;
+desactivarEscuchas():void
+activarEscuchas():void
+getDineroJugador():int
+disminuirDinero():void
+refrescarTodo():void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>850</x>
+      <y>1060</y>
+      <w>180</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>VistaApostar
+--
+zonas:JPanel
+zonaApuesta:JLabel
+boton:JLabel
+escucha:Escucha
+apuesta:JTextField
+instrucciones:JTextArea
+titulo:Titulos
+vista:JFrame
+mesaJuego:MesaJuego
+controlPoker:ControlPoker
+vistaPoker:VistaPoker
+estadoApostar:int
+--
+VistaApostar()
+initGUI():void
+darApuesta():int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>1080</y>
+      <w>320</w>
+      <h>340</h>
+    </coordinates>
+    <panel_attributes>VistaPoker
+--
+volver:JButton
+imagenBoton:ImageIcon
+titulo:Titulos
+mesaJuego:MesaJuego
+panelBotones:JPanel
+pedisrCartas:JButton
+otraRonda:JButton
+vistaPoker:JFrame
+controlPoker:ControlPoker
+escucha:Escucha
+vistaPortada:VistaPortadaPoker
+panelJugadores:PanelJugadores
+instrucciones:JPanel
+mensajes:String
+mensaje:JTextField
+--
+VistaPoker(String,List&lt;List&lt;Carta&gt;&gt;,ControlPoker)
+initGUI(String[],List&lt;List&lt;Carta&gt;&gt;)
+insertarTexto(String):void
+cerrarVistaPoker():void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>380</y>
+      <w>260</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>VistaPortadaPoker
+--
+portadaBotones:JPanel
+fondoImagen:JPanel
+play:JButton
+salir:JButton
+instrucciones:JButton
+escuchaPlay:Escucha
+vistaPortada:JFrame
+imagen:ImageIcon
+vistaInstrucciones1:VistaInstrucciones1
+controlPoker:ControlPoker
+vistaPoker:VistaPoker
+--
+VistaPortadaPoker()
+initGUI():void
+main(String[])</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>110</x>
+      <y>630</y>
+      <w>30</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>1030</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>490</y>
+      <w>160</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>500</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1690</x>
+      <y>310</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1390</x>
+      <y>310</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1450</x>
+      <y>620</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>840</y>
+      <w>150</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>840</y>
+      <w>30</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1280</x>
+      <y>980</y>
+      <w>30</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>950</x>
+      <y>840</y>
+      <w>260</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;240.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>1370</y>
+      <w>370</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>350.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>1240</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>680</y>
+      <w>180</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>0</y>
+      <w>190</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>0</y>
+      <w>190</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>340</y>
+      <w>190</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
